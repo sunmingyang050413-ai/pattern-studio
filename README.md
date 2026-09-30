@@ -4,13 +4,13 @@ A Django + React workbench for transforming S3 data with natural language. Celer
 
 ![Local application interface](docs/interface.png)
 
-> Live application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/ . Public HTTPS, health and session endpoints are verified. Real S3/LLM integration and the demonstration video remain pending; this is not yet a complete submission. See [submission checklist](docs/SUBMISSION.md) and [verification evidence](docs/VERIFICATION.md).
+> Live application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/ . Public HTTPS, health/session endpoints and real Groq planning for all three modes are verified. Real Amazon S3 end-to-end validation and the demonstration video remain pending. An isolated Moto integration harness is provided; it does not constitute real AWS verification. See [submission checklist](docs/SUBMISSION.md) and [verification evidence](docs/VERIFICATION.md).
 
 ## Run
 
 Prerequisites: Docker Engine/Desktop with Compose v2, Python 3 for initial secret generation, and a Groq API key for the default environment (or an explicitly configured OpenAI API key). Allow at least 6 GB memory for the default stack; the optional Spark cluster requires more. No preconfigured AWS bucket or credentials are required.
 
-The supplied environment defaults to Groq's `openai/gpt-oss-20b`, with a 100-call daily application budget and no automatic fallback to a paid provider. Provider quotas apply separately; cached plans do not consume this application budget. See [hosting progress](docs/AZURE_STATUS.md) for the pending Azure student deployment.
+The supplied environment defaults to Groq's `openai/gpt-oss-20b`, with a 100-call daily application budget and no automatic fallback to a paid provider. Provider quotas apply separately; cached plans do not consume this application budget. See [hosting status](docs/AZURE_STATUS.md) and [isolated integration test instructions](docs/FREE_SETUP.md).
 
 ```sh
 python scripts/configure.py
