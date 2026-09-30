@@ -14,6 +14,6 @@ Japan East deployment completed successfully. The generated SSH private key was 
 
 Azure Run Command successfully installed Docker 29.1.3 and Docker Compose 2.40.3 from Ubuntu packages. Docker was enabled and started. Application source was downloaded using a temporary archive-only link; no GitHub account token was installed on the VM. Fresh application secrets were generated on the VM. Compose build and startup exited 0; API, database and Redis report healthy and other long-running services are up.
 
-Public application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/ . TCP 80/443 are enabled following user authorization; SSH and internal service ports remain closed. HTTPS certificate verification, HTTP redirect, frontend, health and session endpoints passed. Source repository: https://github.com/sunmingyang050413-ai/pattern-studio (currently private).
+Public application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/ . TCP 80/443 are enabled following user authorization; SSH and internal service ports remain closed. HTTPS certificate verification, HTTP redirect, frontend, health and session endpoints passed. Source repository: https://github.com/sunmingyang050413-ai/pattern-studio (public; anonymous access verified 1 October 2026).
 
 Keep the student spending limit and do not upgrade to paid service. Retain credit for review. Public hosting and Docker validation are complete; real S3/LLM integration, repository publication and demonstration video remain pending.
