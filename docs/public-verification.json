@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-09-30T14:37:31.357293+00:00",
+  "url": "https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com",
+  "frontend_status": 200,
+  "health": {
+    "status": "ok"
+  },
+  "http_redirects_to_https": true,
+  "session_api_works": true,
+  "secure_cookies": true,
+  "certificate_verified": true,
+  "certificate_expires": "Dec 29 08:10:53 2026 GMT",
+  "certificate_issuer": "Let's Encrypt"
+}
