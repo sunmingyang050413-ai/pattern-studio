@@ -1,5 +1,7 @@
 # Verification record
 
+1 October 2026: repository visibility changed to public with applicant authorization. Anonymous GitHub REST metadata and raw README retrieval both passed without credentials.
+
 1 October 2026: isolated HTTP integration completed on the Azure VM with exit code **0**. Moto 5.1.2 simulated S3; PostgreSQL, Redis, Celery, PySpark and Groq ran as real services. Uploaded a 10,000-row synthetic CSV, listed and ingested it via application jobs, then verified replace/extract/normalize output row by row: **10,000 rows and 100 result pages per mode**, all job statuses SUCCESS. Verified unique IDs, preserved leading zeros, extraction preserving its source column, and unchanged source object bytes. All isolated test containers stopped after completion. No test ports were published and the production S3 endpoint was not changed. Reproduction: `compose.integration.yaml` and `scripts/integration_check.py`. This is **not** evidence of real Amazon S3/IAM integration.
 
 1 October 2026 (Australia/Sydney): configured the dedicated Groq credential on the Azure VM and recreated API/worker services. Three real, uncached `openai/gpt-oss-20b` planner calls passed application validation: email replacement, email extraction, and trim/collapse-whitespace/lowercase normalization. This verifies provider connectivity and plan validation, not the complete S3 ingestion pipeline. No key is stored in the repository. The dedicated key expires 31 October 2026.
