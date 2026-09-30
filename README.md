@@ -4,7 +4,7 @@ A Django + React workbench for transforming S3 data with natural language. Celer
 
 ![Local application interface](docs/interface.png)
 
-> Submission status: implementation and local verification are in progress. A public deployment URL and real S3/LLM demonstration video have **not yet been produced**. Do not submit this repository as complete until the checklist in [docs/SUBMISSION.md](docs/SUBMISSION.md) is finished. Actual test evidence is recorded in [docs/VERIFICATION.md](docs/VERIFICATION.md).
+> Live application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/ . Public HTTPS, health and session endpoints are verified. Real S3/LLM integration and the demonstration video remain pending; this is not yet a complete submission. See [submission checklist](docs/SUBMISSION.md) and [verification evidence](docs/VERIFICATION.md).
 
 ## Run
 
