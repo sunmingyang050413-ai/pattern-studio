@@ -53,6 +53,7 @@ def test_cache_avoids_second_llm_call(monkeypatch):
     client = Mock()
     client.chat.completions.create.return_value = response
     monkeypatch.setenv('OPENAI_API_KEY', 'fake-test-key')
+    monkeypatch.setenv('LLM_PROVIDER', 'openai')
     monkeypatch.setattr(planner, 'OpenAI', Mock(return_value=client))
     assert planner.plan_request('find email addresses', 'replace')[1] is False
     assert planner.plan_request('find email addresses', 'replace')[1] is True
