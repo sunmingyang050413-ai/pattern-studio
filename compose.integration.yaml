@@ -1,0 +1,65 @@
+# Isolated integration test only. No published ports or production volumes.
+name: pattern-studio-check
+x-check: &check
+  image: pattern-studio-api
+  env_file: .env
+  environment: &environment
+    POSTGRES_HOST: db
+    REDIS_URL: redis://redis:6379/0
+    REDIS_RESULT_URL: redis://redis:6379/1
+    REDIS_CACHE_URL: redis://redis:6379/2
+    DATA_ROOT: /data
+    HTTPS: "0"
+    ALLOWED_HOSTS: api,localhost,127.0.0.1
+    AWS_ENDPOINT_URL_S3: http://moto:5000
+  volumes: ["results:/data"]
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: regex
+      POSTGRES_USER: regex
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U regex"]
+      interval: 3s
+      retries: 30
+    volumes: ["postgres:/var/lib/postgresql/data"]
+  redis:
+    image: redis:7.4-alpine
+  moto:
+    image: motoserver/moto:5.1.2
+    environment:
+      MOTO_S3_CUSTOM_ENDPOINTS: http://moto:5000
+      S3_IGNORE_SUBDOMAIN_BUCKETNAME: "true"
+  migrate:
+    <<: *check
+    command: python manage.py migrate --noinput
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    <<: *check
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health/')"]
+      interval: 3s
+      retries: 30
+  worker:
+    <<: *check
+    command: celery -A config worker --loglevel=WARNING --concurrency=1
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+  check:
+    <<: *check
+    command: python /checks/integration_check.py
+    volumes:
+      - ./scripts/integration_check.py:/checks/integration_check.py:ro
+    depends_on:
+      api: {condition: service_healthy}
+      worker: {condition: service_started}
+      moto: {condition: service_started}
+    profiles: [verify]
+volumes:
+  postgres:
+  results:
