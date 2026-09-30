@@ -1,0 +1,15 @@
+.env
+*.pem
+*.key
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.sqlite3
+node_modules/
+frontend/dist/
+data/
+*.log
+.venv/
+artifacts/

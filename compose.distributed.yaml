@@ -1,0 +1,26 @@
+# Optional real Spark standalone cluster on a single Docker host.
+# All Spark processes MUST share /data at the identical absolute path.
+services:
+  worker:
+    environment:
+      SPARK_MASTER: spark://spark-master:7077
+      SPARK_DRIVER_HOST: worker
+      SPARK_PARTITIONS: 16
+    depends_on:
+      spark-master: {condition: service_started}
+      spark-executor: {condition: service_started}
+  spark-master:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: /usr/local/lib/python3.11/site-packages/pyspark/bin/spark-class org.apache.spark.deploy.master.Master --host spark-master --port 7077 --webui-port 8081
+    volumes: ["results:/data"]
+    restart: unless-stopped
+  spark-executor:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: /usr/local/lib/python3.11/site-packages/pyspark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077 --cores 2 --memory 2g --work-dir /tmp/spark-work
+    volumes: ["results:/data"]
+    depends_on: [spark-master]
+    restart: unless-stopped

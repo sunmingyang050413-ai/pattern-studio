@@ -1,0 +1,11 @@
+{
+  "rows": 1000000,
+  "rows_verified": 1000000,
+  "spark_seconds": 7.051,
+  "rows_per_second": 141815,
+  "partitions": 8,
+  "first_page_ms": 0.135,
+  "spark_version": "3.5.7",
+  "master": "local[2]",
+  "note": "Synthetic Spark-only benchmark. Excludes S3, LLM, HTTP and Excel."
+}

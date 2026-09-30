@@ -1,0 +1,10 @@
+# Opt-in public HTTPS endpoint through the account's assigned free ngrok domain.
+# This file is NOT included in the default local stack.
+services:
+  tunnel:
+    image: ngrok/ngrok:3
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN:?Set your free ngrok account token locally in .env}
+    command: ["http", "http://web:80", "--url=https://${NGROK_DOMAIN:?Set the assigned ngrok domain}", "--inspect=false"]
+    depends_on: [web]
+    restart: unless-stopped
