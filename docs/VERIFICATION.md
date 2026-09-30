@@ -1,5 +1,7 @@
 # Verification record
 
+Azure container verification: API health returned `{"status":"ok"}`, frontend returned HTTP 200, and Celery inspection received one worker `pong` through the real Redis broker. The first container test run exposed a mocked OpenAI test inheriting the production Groq provider setting; the test now explicitly selects its mocked provider. Rebuilt worker image: **30 passed in 19.66 seconds**. HTTPS environment and Compose configuration validated; gateway startup and public inbound rules await confirmation. Real S3/LLM calls are still unverified.
+
 30 September cloud update: [GitHub Actions run 36667402782](https://github.com/sunmingyang050413-ai/pattern-studio/actions/runs/36667402782) passed both jobs. Linux backend: **30 passed in 23.19 seconds**, including real Spark integration. Frontend tests and production build passed. Azure Docker Compose build exited 0; API, database and Redis report healthy, and worker, beat, Flower and frontend containers are running. Public HTTPS and real S3/LLM integration remain pending.
 
 30 September update: the provider-only non-Spark suite passed **29 tests, with 1 Spark test deselected**. Five new Groq/provider tests use mocked outbound calls. Earlier real Spark evidence below is unchanged. The Azure VM was created successfully; Docker 29.1.3 and Compose 2.40.3 installation succeeded through Azure Run Command. Application deployment remains pending (see AZURE_STATUS.md).
