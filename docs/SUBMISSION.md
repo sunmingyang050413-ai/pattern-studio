@@ -4,7 +4,7 @@ Email received: **18 September 2026** (as reported by applicant). Two-week deadl
 
 ## Required before sending
 
-- [x] Push the complete source to the applicant's GitHub repository (currently private).
+- [x] Push the complete source to the applicant's GitHub repository (public; anonymous access verified 1 October 2026).
 - [x] Configure a real LLM API key on the server, not in Git.
 - [x] Deploy the full stack to a public HTTPS URL.
 - [ ] Test the reviewer's own-bucket flow with a real S3 test bucket.
