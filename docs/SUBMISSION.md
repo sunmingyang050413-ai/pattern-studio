@@ -11,7 +11,7 @@ Email received: **18 September 2026** (as reported by applicant). Two-week deadl
 - [x] Run Linux Docker-stack tests and verify migrations, Redis, worker, Beat and Flower.
 - [ ] Verify a sizeable dataset through the full S3/LLM/Celery/Spark pipeline.
 - [ ] Record a real demo showing credentials entry, asynchronous completion and paginated results.
-- [ ] Embed/link that video in README; replace live URL placeholders.
+- [x] Link the recorded project walkthrough in README; live URL is included.
 - [ ] Review README tradeoffs and explain the implementation yourself.
 - [ ] Confirm repository, live app and demo are accessible to the reviewer.
 - [ ] Send a **new email**, not a reply, with the exact subject below.
@@ -30,7 +30,7 @@ Please find my submission below:
 
 - GitHub repository: https://github.com/sunmingyang050413-ai/pattern-studio
 - Live application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/
-- Demo video: [insert actual video URL; also included in README]
+- Demo video: https://youtu.be/LqLsA4xI_V4
 
 The repository includes setup instructions, the architecture and design tradeoffs, Docker Compose configuration, tests, and verification results.
 
