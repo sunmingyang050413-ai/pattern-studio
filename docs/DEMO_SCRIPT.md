@@ -1,6 +1,6 @@
 # Demonstration recording plan
 
-Status: no recording exists yet. The available verified test environment uses Moto-emulated S3. Do not describe it as a real AWS demonstration.
+Status: a 2:37 project walkthrough has been recorded and uploaded: https://youtu.be/LqLsA4xI_V4. The available verified test environment uses Moto-emulated S3. Do not describe it as a real AWS demonstration.
 
 ## Accurate 2–3 minute walkthrough
 
