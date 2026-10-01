@@ -4,7 +4,13 @@ A Django + React workbench for transforming S3 data with natural language. Celer
 
 ![Local application interface](docs/interface.png)
 
-> Live application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/ . Public HTTPS, health/session endpoints and real Groq planning for all three modes are verified. Real Amazon S3 end-to-end validation and the demonstration video remain pending. An isolated Moto integration harness is provided; it does not constitute real AWS verification. See [submission checklist](docs/SUBMISSION.md) and [verification evidence](docs/VERIFICATION.md).
+> Live application: https://pattern-studio-ms-2026.japaneast.cloudapp.azure.com/ . Public HTTPS, health/session endpoints and real Groq planning for all three modes are verified. Real Amazon S3 end-to-end validation remains pending. An isolated Moto integration harness is provided; it does not constitute real AWS verification. See [submission checklist](docs/SUBMISSION.md) and [verification evidence](docs/VERIFICATION.md).
+
+## Video walkthrough
+
+[Watch Pattern Studio Demo (2:37)](https://youtu.be/LqLsA4xI_V4)
+
+The walkthrough presents the deployed interface, recorded test evidence, integration code and architecture. It does not show a complete real-S3 processing session. Integration evidence uses Moto-emulated S3 with real Groq, Celery and Spark.
 
 ## Run
 
